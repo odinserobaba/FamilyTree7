@@ -69,7 +69,7 @@ class Service():
         FamilyTreeSerializer.serialize(self.family_tree, file_name)
 
     def load_to_file(self, file_name: str):
-        FamilyTreeSerializer.deserialize(file_name)
+        self.family_tree = FamilyTreeSerializer.deserialize(file_name)
 
     def sort_by_age(self):
         self.family_tree = FamilyTreeSort.sort_by_age(self.family_tree)
@@ -79,3 +79,6 @@ class Service():
 
     def sort_by_last_name(self):
         self.family_tree = FamilyTreeSort.sort_by_last_name(self.family_tree)
+
+    def print_all(self) -> str:
+        return self.family_tree.__repr__()
