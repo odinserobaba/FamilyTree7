@@ -12,6 +12,9 @@ class FamilyTree():
     def get_human_list(self):
         return self._human_list
 
+    def set_human_list(self, human_list):
+        self._human_list = human_list
+
     def get_human(self, id_human: int):
         if self._human_list.get(id_human, None):
             return self._human_list[id_human]
@@ -78,7 +81,7 @@ class FamilyTree():
         return self._human_list.get(index, None)
 
     def __repr__(self) -> str:
-        return "".join([f'id ={k} {v[0]} \n Отец: {v[1]} \n Мать: {v[2]} \n' for k, v in self._human_list.items()])
+        return "".join([f'{v[0]} \n Отец: {v[1]} \n Мать: {v[2]} \n Дети: {[f"{h}" for h in self.get_children(v[0]._id)]} \n' for k, v in self._human_list.items()])
 
     def __str__(self) -> str:
         return self.__repr__()

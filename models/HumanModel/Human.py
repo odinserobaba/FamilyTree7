@@ -78,7 +78,7 @@ class Human(EntityInterface):
         return self._age
 
     def __repr__(self) -> str:
-        return f"Имя: {self._first_name} Фамилия: {self._last_name} Пол: {self._gender} Возраст: {self.get_age()}"
+        return f"ID: {self._id} Имя: {self._first_name} Фамилия: {self._last_name} Пол: {self._gender} Возраст: {self.get_age()}"
 
     def __str__(self) -> str:
         return self.__repr__()
