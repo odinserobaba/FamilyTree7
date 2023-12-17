@@ -1,16 +1,17 @@
 
 from models.HumanModel.EntityInterface import EntityInterface
 from datetime import datetime, date, time
+import Gender
 
 
 class Human(EntityInterface):
-    @property
-    def ID(self):
-        self._id = 0
 
-    @ID.setter
-    def setID(self, id: int):
-        self._id = id
+    def __init__(self, first_name: str, last_name: str, gender: Gender, birth_date: date, death_date: date):
+        self._first_name = first_name
+        self._last_name = last_name
+        self._gender = gender
+        self._birth_date = birth_date
+        self._death_date = death_date
 
     @property
     def first_name(self) -> str:
@@ -43,3 +44,11 @@ class Human(EntityInterface):
     @birth_date.setter
     def set_birth_date(self, birth_datee: date):
         self._birth_date = date
+
+    @property
+    def gender(self) -> Gender:
+        return self._gender
+
+    @gender.setter
+    def set_gender(self, gender: Gender):
+        self._gender = gender
