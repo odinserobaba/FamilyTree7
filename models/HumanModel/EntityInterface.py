@@ -1,12 +1,21 @@
 from abc import ABC, abstractmethod, abstractproperty
 from datetime import date
-import Gender
+
+from .GenderModel import Gender
 
 
 class EntityInterface(ABC):
 
     @abstractproperty
+    def id(self):
+        pass
+
+    @id.setter
     @abstractmethod
+    def set_id(self, id: int):
+        pass
+
+    @abstractproperty
     def first_name(self):
         pass
 
@@ -16,7 +25,6 @@ class EntityInterface(ABC):
         pass
 
     @abstractproperty
-    @abstractmethod
     def last_name(self):
         pass
 
@@ -26,7 +34,6 @@ class EntityInterface(ABC):
         pass
 
     @abstractproperty
-    @abstractmethod
     def death_date(self) -> date:
         pass
 
@@ -36,7 +43,6 @@ class EntityInterface(ABC):
         pass
 
     @abstractproperty
-    @abstractmethod
     def birth_date(self) -> date:
         pass
 
@@ -46,10 +52,17 @@ class EntityInterface(ABC):
         pass
 
     @abstractproperty
-    @abstractmethod
     def gender(self) -> Gender:
         pass
 
     @abstractmethod
     def set_gender(self, gender: Gender):
+        pass
+
+    @abstractmethod
+    def __repr__(self) -> str:
+        pass
+
+    @abstractmethod
+    def __str__(self) -> str:
         pass
